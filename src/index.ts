@@ -1,7 +1,9 @@
 import express from 'express';
 import { Request, Response } from 'express';
+import dotenv from 'dotenv';
 
-const PORT = process.env.PORT || 4000;
+dotenv.config();
+const PORT = process.env.PORT;
 
 const server = async () => {
   const app = express();
@@ -9,8 +11,6 @@ const server = async () => {
   app.use(express.json());
 
   app.get('/', (_req: Request, res: Response) => {
-    // console.log(req);
-
     res.json({ msg: 'hello world' });
   });
 
